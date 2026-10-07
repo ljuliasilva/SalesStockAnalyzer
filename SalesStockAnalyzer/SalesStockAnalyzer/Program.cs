@@ -1,4 +1,4 @@
-﻿using System.Xml.Linq;
+﻿using SalesStockAnalyzer.Handlers;
 
 namespace SalesStockAnalyzer
 {
@@ -6,17 +6,12 @@ namespace SalesStockAnalyzer
     {
         static void Main(string[] args)
         {
-            string filePath = "C:\\Repo\\SalesStockAnalyzer\\Sales_Stock.xml";
+            string filePath = "..\\..\\..\\..\\..\\Sales_Stock.xml";
 
-            var xml = ReadXml(filePath);
+            var xmlReader = new XmlHandler();
+            var xml = xmlReader.ReadXml(filePath);
 
             Console.WriteLine(xml);                    
-        }
-        static XDocument ReadXml(string filePath)
-        {
-            var xml = XDocument.Load(filePath);
-
-            return xml;
         }
     }
 }
