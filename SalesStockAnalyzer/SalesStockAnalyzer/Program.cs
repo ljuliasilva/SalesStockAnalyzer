@@ -7,15 +7,9 @@ namespace SalesStockAnalyzer
     {
         static void Main(string[] args)
         {
-            //var builder = new ConfigurationBuilder();
-            //builder.AddJsonFile("AppSettings.json");
-            //var configuration = builder.Build();
+            var configurationHandler = new ConfigurationHandler();
 
-            var configuration = new ConfigurationBuilder()
-                .AddJsonFile("AppSettings.json")
-                .Build();
-
-            string filePath = configuration["AppConfig:XmlFilePath"];
+            string filePath = configurationHandler.GetXmlFilePath();
 
             var xmlReader = new XmlHandler();
             var xml = xmlReader.ReadXml(filePath);
