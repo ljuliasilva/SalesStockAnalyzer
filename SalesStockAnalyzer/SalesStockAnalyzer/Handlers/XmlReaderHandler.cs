@@ -2,7 +2,7 @@
 
 namespace SalesStockAnalyzer.Handlers
 {
-    public class XmlHandler
+    public class XmlReaderHandler
     {
         public XDocument ReadXml(string filePath)
         {
