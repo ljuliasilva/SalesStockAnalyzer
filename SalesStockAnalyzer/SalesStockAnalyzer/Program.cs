@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using SalesStockAnalyzer.Handlers;
+﻿using SalesStockAnalyzer.Handlers;
 
 namespace SalesStockAnalyzer
 {
@@ -11,10 +10,20 @@ namespace SalesStockAnalyzer
 
             string filePath = configurationHandler.GetXmlFilePath();
 
-            var xmlReader = new XmlHandler();
+            var xmlReader = new XmlReaderHandler();
             var xml = xmlReader.ReadXml(filePath);
 
             Console.WriteLine(xml);
+
+            var xmlManipulator = new XmlManipulatorHandler();
+
+            var products = xmlManipulator.GetProducts(xml);
+
+            foreach (var product in products.Products)
+            {
+                Console.WriteLine();
+                Console.WriteLine(product.Name);
+            }
         }
     }
 }
