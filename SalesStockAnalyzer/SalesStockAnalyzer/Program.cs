@@ -1,4 +1,5 @@
 ﻿using SalesStockAnalyzer.Handlers;
+using SalesStockAnalyzer.Services;
 
 namespace SalesStockAnalyzer
 {
@@ -7,23 +8,15 @@ namespace SalesStockAnalyzer
         static void Main(string[] args)
         {
             var configurationHandler = new ConfigurationHandler();
+            var xmlReader = new XmlHandler();
+            var xmlManipulator = new XmlHandler();
 
             string filePath = configurationHandler.GetXmlFilePath();
 
-            var xmlReader = new XmlReaderHandler();
-            var xml = xmlReader.ReadXml(filePath);
-
-            Console.WriteLine(xml);
-
-            var xmlManipulator = new XmlManipulatorHandler();
+            var xml = xmlReader.ReadXml(filePath);                        
 
             var products = xmlManipulator.GetProducts(xml);
 
-            foreach (var product in products.Products)
-            {
-                Console.WriteLine();
-                Console.WriteLine(product.Name);
-            }
         }
     }
 }
