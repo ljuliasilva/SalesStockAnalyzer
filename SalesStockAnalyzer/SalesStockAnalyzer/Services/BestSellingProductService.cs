@@ -1,10 +1,21 @@
 ﻿using SalesStockAnalyzer.Models;
+using SalesStockAnalyzer.Services.Interface;
+using System.ComponentModel.Composition;
 
 namespace SalesStockAnalyzer.Services
 {
-    public class BestSellingProduct
+    [Export(typeof(IBestSellingProductService))]
+    public class BestSellingProductService : IBestSellingProductService
     {
-        public ProductModel GetBestSellingProduct(ProductsModel product)
+        public void ShowBestSellingProduct(ProductsModel products)
+        {
+            var bestProduct = GetBestSellingProduct(products);
+
+            Console.WriteLine($"\nBest-selling product: {bestProduct.Name}");
+            Console.WriteLine($"Quantity sold: {bestProduct.SalesInfo?.SoldQuantity}");
+        }
+
+        private ProductModel GetBestSellingProduct(ProductsModel product)
         {
             ProductModel? bestSellingProduct = null;
             int highestSoldQuantity = 0;

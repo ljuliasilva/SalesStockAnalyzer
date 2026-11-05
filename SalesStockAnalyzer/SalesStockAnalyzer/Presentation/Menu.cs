@@ -4,7 +4,7 @@
     {
         public static void Show()
         {
-            Console.WriteLine("Type the desire option: ");
+            Console.WriteLine("Type the desire option: \n");
             Console.WriteLine("1 - Quantity of products in stock");
             Console.WriteLine("2 - Total sales value of products in stock");
             Console.WriteLine("3 - Best-selling product");

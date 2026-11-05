@@ -1,4 +1,5 @@
-﻿using SalesStockAnalyzer.Handlers;
+﻿using SalesStockAnalyzer.Controller;
+using SalesStockAnalyzer.Handlers;
 using SalesStockAnalyzer.Presentation;
 
 namespace SalesStockAnalyzer
@@ -11,6 +12,7 @@ namespace SalesStockAnalyzer
             var xmlReader = new XmlHandler();
             var xmlManipulator = new XmlHandler();
             var menu = new Menu();
+            var reportController = new ReportController();
 
             string filePath = configurationHandler.GetXmlFilePath();
 
@@ -19,6 +21,8 @@ namespace SalesStockAnalyzer
             var products = xmlManipulator.GetProducts(xml);
 
             Menu.Show();
+
+            reportController.ShowReport(products);
         }
     }
 }
