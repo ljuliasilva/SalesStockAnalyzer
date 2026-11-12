@@ -13,7 +13,6 @@ namespace SalesStockAnalyzer
             var configurationHandler = new ConfigurationHandler();
             var xmlReader = new XmlHandler();
             var xmlManipulator = new XmlHandler();
-            var menu = new Menu();
 
             string filePath = configurationHandler.GetXmlFilePath();
 
@@ -29,9 +28,9 @@ namespace SalesStockAnalyzer
 
             container.ComposeParts(reportController);
 
-            Menu.Show();
+            int option = Menu.Show();
 
-            reportController.ShowReport(products);
+            reportController.ShowReport(products, option);
         }
     }
 }

@@ -9,20 +9,16 @@ namespace SalesStockAnalyzer.Controller
         [Import]
         public IBestSellingProductService? BestSellingProduct { get; set; }
 
-        public void ShowReport(ProductsModel products)
+        public void ShowReport(ProductsModel products, int option)
         {
-            Console.Write("\nOption: ");
-            string option = Console.ReadLine();
-
             switch (option)
             {
-                case "3":
+                case 3:
                     BestSellingProduct?.ShowBestSellingProduct(products);
                     break;
 
                 default:
-                    Console.WriteLine("\nOption not implemented yet.");
-                    break;
+                    throw new InvalidOperationException("Invalid menu option.");
             }
         }
     }

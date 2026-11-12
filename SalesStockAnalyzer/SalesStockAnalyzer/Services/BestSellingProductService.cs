@@ -11,14 +11,8 @@ namespace SalesStockAnalyzer.Services
         {
             var bestProduct = GetBestSellingProduct(products);
 
-            Console.WriteLine("\n=== Best-selling Product ===");
-            Console.WriteLine($"ID: {bestProduct.Id}");
-            Console.WriteLine($"Name: {bestProduct.Name}");
-            Console.WriteLine($"Description: {bestProduct.Details?.Description}");
-            Console.WriteLine($"Price: {bestProduct.Details?.Price:C}");
-            Console.WriteLine($"In Stock Quantity: {bestProduct.SalesInfo?.InStockQuantity}");
-            Console.WriteLine($"Sold Quantity: {bestProduct.SalesInfo?.SoldQuantity}");
-            Console.WriteLine($"Modification Date: {bestProduct.ModificationDate}");
+            Console.WriteLine("\n=== Best-selling Product ===\n");
+            Console.WriteLine(bestProduct);
         }
 
         private ProductModel GetBestSellingProduct(ProductsModel product)
