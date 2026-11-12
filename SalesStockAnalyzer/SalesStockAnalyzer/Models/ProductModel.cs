@@ -8,9 +8,10 @@
         public SalesInformationModel ?SalesInfo { get; set; }
         public DateTime ModificationDate { get; set; }
 
-        public override string ToString()
+        public string ToString(string serviceName)
         {
             return $"""
+                === {serviceName} ===
                 ID: {Id}
                 Name: {Name}
                 Description: {Details?.Description}
@@ -19,6 +20,10 @@
                 Sold Quantity: {SalesInfo?.SoldQuantity}
                 Modification Date: {ModificationDate:yyyy-MM-dd HH:mm:ss}
                 """;
+        }
+        public override string ToString()
+        {
+            return ToString("Product");
         }
     }
 }

@@ -11,8 +11,7 @@ namespace SalesStockAnalyzer.Services
         {
             var bestProduct = GetBestSellingProduct(products);
 
-            Console.WriteLine("\n=== Best-selling Product ===\n");
-            Console.WriteLine(bestProduct);
+            Console.WriteLine(bestProduct.ToString("Best-selling Product"));
         }
 
         private ProductModel GetBestSellingProduct(ProductsModel product)

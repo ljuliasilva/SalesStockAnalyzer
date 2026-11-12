@@ -1,4 +1,5 @@
-﻿using SalesStockAnalyzer.Models;
+﻿using SalesStockAnalyzer.Enums;
+using SalesStockAnalyzer.Models;
 using SalesStockAnalyzer.Services.Interface;
 using System.ComponentModel.Composition;
 
@@ -11,9 +12,9 @@ namespace SalesStockAnalyzer.Controller
 
         public void ShowReport(ProductsModel products, int option)
         {
-            switch (option)
+            switch ((MenuOptionsEnum)option)
             {
-                case 3:
+                case MenuOptionsEnum.BestSellingProduct:
                     BestSellingProduct?.ShowBestSellingProduct(products);
                     break;
 
