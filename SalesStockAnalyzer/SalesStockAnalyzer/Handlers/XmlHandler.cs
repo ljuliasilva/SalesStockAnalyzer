@@ -1,5 +1,6 @@
 ﻿using System.Xml.Linq;
 using SalesStockAnalyzer.Models;
+using System.Globalization;
 
 namespace SalesStockAnalyzer.Handlers
 {
@@ -28,7 +29,7 @@ namespace SalesStockAnalyzer.Handlers
                 {
                     Description = node.Element("Details")?.Element("Description")?.Value.Trim(),
 
-                    Price = float.Parse(node.Element("Details")?.Element("Price")?.Value!)
+                    Price = float.Parse(node.Element("Details")?.Element("Price")?.Value!, CultureInfo.InvariantCulture),
                 };
 
                 product?.SalesInfo = new SalesInformationModel
