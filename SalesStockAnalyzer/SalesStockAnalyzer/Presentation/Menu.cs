@@ -4,7 +4,7 @@
     {
         public static int Show()
         {
-            Console.WriteLine("Type the desire option: \n");
+            Console.WriteLine("========== Sales & Stock Analyzer ==========\n");
             Console.WriteLine("1 - Quantity of products in stock");
             Console.WriteLine("2 - Total sales value of products in stock");
             Console.WriteLine("3 - Best-selling product");
@@ -14,12 +14,9 @@
             Console.WriteLine("7 - Execute all options");
             Console.WriteLine("8 - Exit");
 
-            Console.Write("\nOption: ");
+            Console.Write("\nSelect an option: ");
 
-            if (!int.TryParse(Console.ReadLine(), out int option))
-            {
-                throw new InvalidOperationException("Option must be a number.");
-            }
+            int.TryParse(Console.ReadLine(), out int option);
 
             return option;
         }

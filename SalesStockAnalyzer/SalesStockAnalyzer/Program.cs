@@ -1,4 +1,5 @@
 ﻿using SalesStockAnalyzer.Controller;
+using SalesStockAnalyzer.Enums;
 using SalesStockAnalyzer.Handlers;
 using SalesStockAnalyzer.Presentation;
 using System.ComponentModel.Composition;
@@ -28,9 +29,45 @@ namespace SalesStockAnalyzer
 
             container.ComposeParts(reportController);
 
-            int option = Menu.Show();
+            bool isRunning = true;
 
-            reportController.ShowReport(products, option);
+            while (isRunning)
+            {
+                Console.Clear();
+
+                int option = Menu.Show();
+
+                if (!Enum.IsDefined(typeof(MenuOptionsEnum), option))
+                {
+                    Console.Clear();
+
+                    Console.WriteLine("Invalid option. Please try again.\n");
+                    Console.WriteLine("Press any key to return to the menu...");
+
+                    Console.ReadKey();
+
+                    continue;
+                }
+
+                if (option == (int)MenuOptionsEnum.Exit)
+                {
+                    Console.Clear();
+
+                    Console.WriteLine("Exiting application...");
+
+                    isRunning = false;
+
+                    continue;
+                }
+
+                Console.Clear();
+
+                reportController.ShowReport(products, option);
+
+                Console.WriteLine("\nPress any key to return to the menu...");
+
+                Console.ReadKey();
+            }
         }
     }
 }
