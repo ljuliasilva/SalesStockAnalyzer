@@ -18,6 +18,15 @@ namespace SalesStockAnalyzer.Controller
                     BestSellingProduct?.ShowBestSellingProduct(products);
                     break;
 
+                case MenuOptionsEnum.QuantityOfProductsInStock:
+                case MenuOptionsEnum.TotalSalesValueOfProductsInStock:
+                case MenuOptionsEnum.MostProfitableProduct:
+                case MenuOptionsEnum.ProductsThatHaveNotBeenSold:
+                case MenuOptionsEnum.OutOfStockProducts:
+                case MenuOptionsEnum.ExecuteAllOptions:
+                    Console.WriteLine("This option is not implemented yet.");
+                    break;
+
                 default:
                     throw new InvalidOperationException("Invalid menu option.");
             }

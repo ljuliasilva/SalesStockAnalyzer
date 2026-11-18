@@ -29,9 +29,7 @@ namespace SalesStockAnalyzer
 
             container.ComposeParts(reportController);
 
-            bool isRunning = true;
-
-            while (isRunning)
+            while (true)
             {
                 Console.Clear();
 
@@ -55,9 +53,7 @@ namespace SalesStockAnalyzer
 
                     Console.WriteLine("Exiting application...");
 
-                    isRunning = false;
-
-                    continue;
+                    break;
                 }
 
                 Console.Clear();
