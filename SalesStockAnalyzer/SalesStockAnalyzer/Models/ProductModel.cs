@@ -1,4 +1,6 @@
-﻿namespace SalesStockAnalyzer.Models
+﻿using System.Globalization;
+
+namespace SalesStockAnalyzer.Models
 {
     public class ProductModel
     {
@@ -15,7 +17,7 @@
                 ID: {Id}
                 Name: {Name}
                 Description: {Details?.Description}
-                Price: {Details?.Price:C}
+                Price: {Details?.Price.ToString("F2", CultureInfo.InvariantCulture)}
                 In Stock Quantity: {SalesInfo?.InStockQuantity}
                 Sold Quantity: {SalesInfo?.SoldQuantity}
                 Modification Date: {ModificationDate:yyyy-MM-dd HH:mm:ss}
